@@ -32,8 +32,8 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Sex_Label_Text()
 
-        Dim value As String = myDriver.FindElement(By.Id("sexLabel")).Text
-        Assert.AreEqual(value, "Select your sex:")
+        Dim value As String = myDriver.FindElement(By.Id("genderLabel")).Text
+        Assert.AreEqual(value, "Select your gender:")
 
     End Sub
 
@@ -66,7 +66,9 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Male_Radio()
 
-        Assert.IsTrue(myDriver.FindElements(By.Id("male")).Count = 1)
+        Dim result = myDriver.FindElements(By.Id("male")).Count = 1
+
+        Assert.IsTrue(result)
 
     End Sub
 
@@ -147,7 +149,6 @@ Imports OpenQA.Selenium.PhantomJS
     End Sub
 
 #End Region
-
 
 #Region "Button Tests"
     <TestMethod()> Public Sub Home_Page_Contains_Next_Button()

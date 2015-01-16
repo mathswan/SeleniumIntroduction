@@ -8,13 +8,13 @@ End Code
 
 <p>
     <label for="name" id="nameLabel">Enter your name:</label>
-    <input type="text" name="name" id="name" />
+    @Html.TextBox("name")
 </p>
 
 <p>
-    <label for="sex" id="sexLabel">Select your sex:</label>
-    <input type="radio" name="sex" id="male" value="male" checked="checked">Male
-    <input type="radio" name="sex" id="female" value="female">Female
+    <label for="gender" id="genderLabel">Select your gender:</label>
+    <input type="radio" name="gender" id="male" value="male" checked="checked">Male
+    <input type="radio" name="gender" id="female" value="female">Female
 </p>
 
 <p>
