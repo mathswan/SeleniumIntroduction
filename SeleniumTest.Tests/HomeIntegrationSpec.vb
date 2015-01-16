@@ -22,22 +22,11 @@ Imports OpenQA.Selenium.PhantomJS
 #End Region
 
 #Region "Label Tests"
-    <TestMethod()> Public Sub Home_Page_Contains_Name_Label()
-
-        Assert.IsTrue(myDriver.FindElements(By.Id("nameLabel")).Count = 1)
-
-    End Sub
 
     <TestMethod()> Public Sub Home_Page_Contains_Name_Label_Text()
 
         Dim value As String = myDriver.FindElement(By.Id("nameLabel")).Text
         Assert.AreEqual(value, "Enter your name:")
-
-    End Sub
-
-    <TestMethod()> Public Sub Home_Page_Contains_Sex_Label()
-
-        Assert.IsTrue(myDriver.FindElements(By.Id("sexLabel")).Count = 1)
 
     End Sub
 
@@ -52,6 +41,13 @@ Imports OpenQA.Selenium.PhantomJS
 
         Dim value As String = myDriver.FindElement(By.Id("carLabel")).Text
         Assert.AreEqual(value, "Select your car:")
+
+    End Sub
+
+    <TestMethod()> Public Sub Home_Page_Contains_Terms_Label_Text()
+
+        Dim value As String = myDriver.FindElement(By.Id("termsLabel")).Text
+        Assert.AreEqual(value, "I agree to the terms and conditions")
 
     End Sub
 
@@ -128,6 +124,30 @@ Imports OpenQA.Selenium.PhantomJS
     End Sub
 
 #End Region
+
+#Region "Checkbox Tests"
+
+    <TestMethod()> Public Sub Home_Page_Contains_Terms_Checkbox()
+
+        Assert.IsTrue(myDriver.FindElements(By.Id("terms")).Count = 1)
+
+    End Sub
+
+    <TestMethod()> Public Sub Home_Page_Terms_Unchecked_Default()
+
+        Assert.IsFalse(myDriver.FindElement(By.Id("terms")).Selected)
+
+    End Sub
+
+    <TestMethod()> Public Sub Home_Page_Terms_Checked_On_Click()
+        myDriver.FindElementById("terms").Click()
+
+        Assert.IsTrue(myDriver.FindElement(By.Id("terms")).Selected)
+
+    End Sub
+
+#End Region
+
 
 #Region "Button Tests"
     <TestMethod()> Public Sub Home_Page_Contains_Next_Button()

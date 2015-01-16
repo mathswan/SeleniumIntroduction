@@ -28,5 +28,10 @@ End Code
 </p>
 
 <p>
+    <label for="terms" id="termsLabel">I agree to the terms and conditions</label>
+    <input type="checkbox" name="terms" id="terms" value="Terms and conditions">
+</p>
+
+<p>
     <input type="submit" id="Next" value="Next">
 </p>
