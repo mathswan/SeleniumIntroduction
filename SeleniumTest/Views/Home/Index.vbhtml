@@ -21,12 +21,7 @@ End Code
 
 <p>
     @Html.LabelFor(Function(model) model.Car, "Select a car: ")
-    <select id="Car" name="Car">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-    </select>
+    @Html.DropDownListFor(Function(model) model.Car, CType(ViewBag.cars, List(Of SelectListItem)), "Select One")
 </p>
 
 <p>

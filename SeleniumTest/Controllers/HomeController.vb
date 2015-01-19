@@ -5,11 +5,17 @@ Namespace SeleniumTest.Home
     Public Class HomeController
         Inherits Controller
 
-        ' GET: /Home
         Function Index() As ActionResult
             Dim home As New Home
-            ViewBag.Greeting = home.Greeting
 
+            Dim cars = New List(Of SelectListItem)
+            cars.Add(New SelectListItem With {.Text = "Volvo", .Value = "Volvo"})
+            cars.Add(New SelectListItem With {.Text = "Audi", .Value = "Audi"})
+            cars.Add(New SelectListItem With {.Text = "Saab", .Value = "Saab"})
+            cars.Add(New SelectListItem With {.Text = "Mercedes", .Value = "Mercedes"})
+
+            ViewBag.Greeting = home.Greeting
+            ViewBag.Cars = cars
             Return View()
         End Function
 
