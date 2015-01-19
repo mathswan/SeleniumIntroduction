@@ -91,36 +91,36 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Male_Radio()
 
-        Dim result = myDriver.FindElements(By.Id("male")).Count = 1
+        Dim result = myDriver.FindElements(By.Id("Male")).Count = 1
 
         Assert.IsTrue(result)
 
     End Sub
 
-    <TestMethod()> Public Sub Home_Page_Contains_Female_Radio()
+    <TestMethod()> Public Sub Home_Page_Contains_Two_Radio_Options()
 
-        Assert.IsTrue(myDriver.FindElements(By.Id("male")).Count = 1)
+        Assert.IsTrue(myDriver.FindElements(By.Id("Female")).Count = 1)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Male_Radio_Checked_Default()
 
-        Assert.IsTrue(myDriver.FindElement(By.Id("male")).Selected)
+        Assert.IsTrue(myDriver.FindElement(By.Id("Male")).Selected)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Female_Radio_Unchecked_Default()
 
-        Assert.IsFalse(myDriver.FindElement(By.Id("female")).Selected)
+        Assert.IsFalse(myDriver.FindElement(By.Id("Female")).Selected)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Male_Radio_Unchecked_When_Female_Checked()
 
-        myDriver.FindElementById("female").Click()
+        myDriver.FindElementById("Female").Click()
 
-        Assert.IsFalse(myDriver.FindElement(By.Id("male")).Selected)
-        Assert.IsTrue(myDriver.FindElement(By.Id("female")).Selected)
+        Assert.IsFalse(myDriver.FindElement(By.Id("Male")).Selected)
+        Assert.IsTrue(myDriver.FindElement(By.Id("Female")).Selected)
 
     End Sub
 #End Region

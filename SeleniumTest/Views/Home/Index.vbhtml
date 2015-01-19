@@ -9,18 +9,18 @@ End Code
 <p>@ViewBag.Greeting</p>
 
 <p>
-    @Html.LabelFor(Function(model) model.Name, "Enter your name")
+    @Html.LabelFor(Function(model) model.Name, "Enter your name: ")
     @Html.TextBoxFor(Function(model) model.Name)
 </p>
 
 <p>
-    @Html.LabelFor(Function(model) model.Gender, "What is your gender")  
-    <input type="radio" name="Gender" id="male" value="male" checked="checked">Male
-    <input type="radio" name="Gender" id="female" value="female">Female
+    @Html.LabelFor(Function(model) model.Gender, "What is your gender: ")  
+    @Html.RadioButtonFor(Function(model) model.Gender, "Male", New With {.id = "Male", .checked = "checked"}) Male
+    @Html.RadioButtonFor(Function(model) model.Gender, "Female", New With {.id = "Female"}) Female
 </p>
 
 <p>
-    @Html.LabelFor(Function(model) model.Car, "Select a car")
+    @Html.LabelFor(Function(model) model.Car, "Select a car: ")
     <select id="Car" name="Car">
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
@@ -30,7 +30,7 @@ End Code
 </p>
 
 <p>
-    @Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions")
+    @Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions: ")
     @Html.CheckBoxFor(Function(model) model.TermsAndConditions)
 
 </p>
