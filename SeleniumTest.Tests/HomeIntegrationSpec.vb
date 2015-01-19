@@ -35,12 +35,6 @@ Imports OpenQA.Selenium.PhantomJS
 
     End Sub
 
-    <TestMethod()> Public Sub Home_Page_Contains_Car_Label_Text()
-
-        Assert.IsTrue(myDriver.PageSource.Contains("Select a car"))
-
-    End Sub
-
     <TestMethod()> Public Sub Home_Page_Contains_Terms_Label_Text()
 
         Assert.IsTrue(myDriver.PageSource.Contains("I agree to the terms and conditions"))
@@ -125,34 +119,6 @@ Imports OpenQA.Selenium.PhantomJS
     End Sub
 #End Region
 
-#Region "Drop Down Tests"
-
-    <TestMethod()> Public Sub Home_Page_Contains_Car_Dropdown()
-
-        Assert.IsTrue(myDriver.FindElements(By.Id("Car")).Count = 1)
-
-    End Sub
-
-    <TestMethod()> Public Sub Home_Page_Dropdown_Select_Alternative_Option()
-
-        myDriver.FindElement(By.Id("Car")).SendKeys("Audi")
-        Dim result As String = myDriver.FindElement(By.Id("Car")).GetAttribute("value")
-
-        Assert.AreEqual(result, "Audi")
-
-    End Sub
-
-    <TestMethod()> Public Sub Home_Page_Dropdown_Select_Invalid_Option()
-
-        myDriver.FindElement(By.Id("Car")).SendKeys("InvalidOption")
-        Dim result As String = myDriver.FindElement(By.Id("Car")).GetAttribute("value")
-
-        Assert.AreNotEqual(result, "InvalidOption")
-
-    End Sub
-
-#End Region
-
 #Region "Checkbox Tests"
 
     <TestMethod()> Public Sub Home_Page_Contains_Terms_Checkbox()
@@ -183,11 +149,11 @@ Imports OpenQA.Selenium.PhantomJS
 
     End Sub
 
-    <TestMethod()> Public Sub Home_Page_Next_Button_Redirects()
+    <TestMethod()> Public Sub Home_Page_Does_Not_Redirect_On_Invalid_Input()
 
         myDriver.FindElementById("Next").Click()
 
-        Assert.IsFalse(myDriver.Title = "Home")
+        Assert.IsTrue(myDriver.Title = "Home")
 
     End Sub
 
