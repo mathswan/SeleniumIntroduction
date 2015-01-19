@@ -8,10 +8,15 @@ Namespace SeleniumTest.Home
         ' GET: /Home
         Function Index() As ActionResult
             Dim home As New Home
-
-            ViewData("Greeting") = home.Greeting
+            ViewBag.Greeting = home.Greeting
 
             Return View()
+        End Function
+
+        <HttpPost>
+        Function Details() As ActionResult
+
+            Return View("Details")
         End Function
     End Class
 

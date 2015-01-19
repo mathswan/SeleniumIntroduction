@@ -25,29 +25,25 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Name_Label_Text()
 
-        Dim value As String = myDriver.FindElement(By.Id("nameLabel")).Text
-        Assert.AreEqual(value, "Enter your name:")
+        Assert.IsTrue(myDriver.PageSource.Contains("Enter your name"))
 
     End Sub
 
-    <TestMethod()> Public Sub Home_Page_Contains_Sex_Label_Text()
+    <TestMethod()> Public Sub Home_Page_Contains_Gender_Label_Text()
 
-        Dim value As String = myDriver.FindElement(By.Id("genderLabel")).Text
-        Assert.AreEqual(value, "Select your gender:")
+        Assert.IsTrue(myDriver.PageSource.Contains("What is your gender"))
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Contains_Car_Label_Text()
 
-        Dim value As String = myDriver.FindElement(By.Id("carLabel")).Text
-        Assert.AreEqual(value, "Select your car:")
+        Assert.IsTrue(myDriver.PageSource.Contains("Select a car"))
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Contains_Terms_Label_Text()
 
-        Dim value As String = myDriver.FindElement(By.Id("termsLabel")).Text
-        Assert.AreEqual(value, "I agree to the terms and conditions")
+        Assert.IsTrue(myDriver.PageSource.Contains("I agree to the terms and conditions"))
 
     End Sub
 
@@ -57,7 +53,7 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Name_Textbox()
 
-        Assert.IsTrue(myDriver.FindElements(By.Id("name")).Count = 1)
+        Assert.IsTrue(myDriver.FindElements(By.Id("Name")).Count = 1)
 
     End Sub
 
@@ -67,13 +63,17 @@ Imports OpenQA.Selenium.PhantomJS
 
         For count = 0 To (nameList.Count - 1)
             ClearNameTextbox()
-            myDriver.FindElement(By.Id("name")).SendKeys(nameList.Item(count))
+            myDriver.FindElement(By.Id("Name")).SendKeys(nameList.Item(count))
 
-            Dim result As String = myDriver.FindElement(By.Id("name")).GetAttribute("value")
+            Dim result As String = myDriver.FindElement(By.Id("Name")).GetAttribute("value")
 
             Assert.AreEqual(nameList.Item(count), result)
         Next count
 
+    End Sub
+
+    Public Sub ClearNameTextbox()
+        myDriver.FindElement(By.Id("Name")).Clear()
     End Sub
 
     Public Function TextboxTestList() As List(Of String)
@@ -129,13 +129,13 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Car_Dropdown()
 
-        Assert.IsTrue(myDriver.FindElements(By.Id("car")).Count = 1)
+        Assert.IsTrue(myDriver.FindElements(By.Id("Car")).Count = 1)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Default_Dropdown_Option()
 
-        Dim result As String = myDriver.FindElement(By.Id("car")).GetAttribute("value")
+        Dim result As String = myDriver.FindElement(By.Id("Car")).GetAttribute("value")
 
         Assert.AreEqual(result, "volvo")
 
@@ -143,8 +143,8 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Select_Alternative_Option()
 
-        myDriver.FindElement(By.Id("car")).SendKeys("Audi")
-        Dim result As String = myDriver.FindElement(By.Id("car")).GetAttribute("value")
+        myDriver.FindElement(By.Id("Car")).SendKeys("Audi")
+        Dim result As String = myDriver.FindElement(By.Id("Car")).GetAttribute("value")
 
         Assert.AreEqual(result, "audi")
 
@@ -156,20 +156,20 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestMethod()> Public Sub Home_Page_Contains_Terms_Checkbox()
 
-        Assert.IsTrue(myDriver.FindElements(By.Id("terms")).Count = 1)
+        Assert.IsTrue(myDriver.FindElements(By.Id("TermsAndConditions")).Count = 1)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Terms_Unchecked_Default()
 
-        Assert.IsFalse(myDriver.FindElement(By.Id("terms")).Selected)
+        Assert.IsFalse(myDriver.FindElement(By.Id("TermsAndConditions")).Selected)
 
     End Sub
 
     <TestMethod()> Public Sub Home_Page_Terms_Checked_On_Click()
-        myDriver.FindElementById("terms").Click()
+        myDriver.FindElementById("TermsAndConditions").Click()
 
-        Assert.IsTrue(myDriver.FindElement(By.Id("terms")).Selected)
+        Assert.IsTrue(myDriver.FindElement(By.Id("TermsAndConditions")).Selected)
 
     End Sub
 
@@ -186,7 +186,7 @@ Imports OpenQA.Selenium.PhantomJS
 
         myDriver.FindElementById("Next").Click()
 
-        Assert.IsTrue(myDriver.Title = "Home")
+        Assert.IsFalse(myDriver.Title = "Home")
 
     End Sub
 
@@ -201,10 +201,6 @@ Imports OpenQA.Selenium.PhantomJS
     <TestCleanup()>
     Public Sub Cleanup()
         myDriver.Close()
-    End Sub
-
-    Public Sub ClearNameTextbox()
-        myDriver.FindElement(By.Id("name")).Clear()
     End Sub
 
     'Dim myDriver As New ChromeDriver("C:\Users\snaithm\Downloads\chromedriver_win32")

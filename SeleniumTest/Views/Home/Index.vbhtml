@@ -1,25 +1,27 @@
-﻿@Code
-    ViewData("Title") = "Home"
+﻿@ModelType UserModel
+@Code
+    ViewBag.Title = "Home"
+    Html.BeginForm("Details", "Home", method:=FormMethod.Post)
 End Code
 
 <h2>Home</h2>
 
-<p>@ViewData("Greeting")</p>
+<p>@ViewBag.Greeting</p>
 
 <p>
-    <label for="name" id="nameLabel">Enter your name:</label>
-    @Html.TextBox("name")
+    @Html.LabelFor(Function(model) model.Name, "Enter your name")
+    @Html.TextBoxFor(Function(model) model.Name)
 </p>
 
 <p>
-    <label for="gender" id="genderLabel">Select your gender:</label>
-    <input type="radio" name="gender" id="male" value="male" checked="checked">Male
-    <input type="radio" name="gender" id="female" value="female">Female
+    @Html.LabelFor(Function(model) model.Gender, "What is your gender")  
+    <input type="radio" name="Gender" id="male" value="male" checked="checked">Male
+    <input type="radio" name="Gender" id="female" value="female">Female
 </p>
 
 <p>
-    <label for="car" id="carLabel">Select your car:</label>
-    <select id="car" name="car">
+    @Html.LabelFor(Function(model) model.Car, "Select a car")
+    <select id="Car" name="Car">
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
@@ -28,8 +30,9 @@ End Code
 </p>
 
 <p>
-    <label for="terms" id="termsLabel">I agree to the terms and conditions</label>
-    @Html.CheckBox("terms")
+    @Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions")
+    @Html.CheckBoxFor(Function(model) model.TermsAndConditions)
+
 </p>
 
 <p>
