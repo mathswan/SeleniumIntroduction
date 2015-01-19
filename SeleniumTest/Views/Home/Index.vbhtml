@@ -8,28 +8,18 @@ End Code
 
 <p>@ViewBag.Greeting</p>
 
-<p>
-    @Html.LabelFor(Function(model) model.Name, "Enter your name: ")
-    @Html.TextBoxFor(Function(model) model.Name)
-</p>
+    
+@Html.LabelFor(Function(model) model.Name, "Enter your name: ")
+@Html.TextBoxFor(Function(model) model.Name) <br /><br />
 
-<p>
-    @Html.LabelFor(Function(model) model.Gender, "What is your gender: ")  
-    @Html.RadioButtonFor(Function(model) model.Gender, "Male", New With {.id = "Male", .checked = "checked"}) Male
-    @Html.RadioButtonFor(Function(model) model.Gender, "Female", New With {.id = "Female"}) Female
-</p>
+@Html.LabelFor(Function(model) model.Gender, "What is your gender: ")  
+@Html.RadioButtonFor(Function(model) model.Gender, "Male", New With {.id = "Male", .checked = "checked"}) Male
+@Html.RadioButtonFor(Function(model) model.Gender, "Female", New With {.id = "Female"}) Female <br /><br />
+   
+@Html.LabelFor(Function(model) model.Car, "Select a car: ")
+@Html.DropDownListFor(Function(model) model.Car, CType(ViewBag.cars, List(Of SelectListItem)), "Select One") <br /><br />
 
-<p>
-    @Html.LabelFor(Function(model) model.Car, "Select a car: ")
-    @Html.DropDownListFor(Function(model) model.Car, CType(ViewBag.cars, List(Of SelectListItem)), "Select One")
-</p>
+@Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions: ")
+@Html.CheckBoxFor(Function(model) model.TermsAndConditions) <br /><br />
 
-<p>
-    @Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions: ")
-    @Html.CheckBoxFor(Function(model) model.TermsAndConditions)
-
-</p>
-
-<p>
-    <input type="submit" id="Next" value="Next">
-</p>
+<input type="submit" id="Next" value="Next">
