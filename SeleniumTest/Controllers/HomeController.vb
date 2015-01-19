@@ -8,14 +8,8 @@ Namespace SeleniumTest.Home
         Function Index() As ActionResult
             Dim home As New Home
 
-            Dim cars = New List(Of SelectListItem)
-            cars.Add(New SelectListItem With {.Text = "Volvo", .Value = "Volvo"})
-            cars.Add(New SelectListItem With {.Text = "Audi", .Value = "Audi"})
-            cars.Add(New SelectListItem With {.Text = "Saab", .Value = "Saab"})
-            cars.Add(New SelectListItem With {.Text = "Mercedes", .Value = "Mercedes"})
-
             ViewBag.Greeting = home.Greeting
-            ViewBag.Cars = cars
+            ViewBag.Cars = home.GenerateCarsDropDownList
             Return View()
         End Function
 
