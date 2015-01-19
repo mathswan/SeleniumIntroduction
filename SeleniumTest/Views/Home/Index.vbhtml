@@ -29,7 +29,7 @@ End Code
 
 <p>
     <label for="terms" id="termsLabel">I agree to the terms and conditions</label>
-    <input type="checkbox" name="terms" id="terms" value="Terms and conditions">
+    @Html.CheckBox("terms")
 </p>
 
 <p>

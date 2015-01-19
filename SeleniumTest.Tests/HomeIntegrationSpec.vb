@@ -60,6 +60,31 @@ Imports OpenQA.Selenium.PhantomJS
         Assert.IsTrue(myDriver.FindElements(By.Id("name")).Count = 1)
 
     End Sub
+
+    <TestMethod()> Public Sub Home_Page_Name_Textbox_Contains_Text_When_Entered()
+
+        Dim nameList As List(Of String) = TextboxTestList()
+
+        For count = 0 To (nameList.Count - 1)
+            ClearNameTextbox()
+            myDriver.FindElement(By.Id("name")).SendKeys(nameList.Item(count))
+
+            Dim result As String = myDriver.FindElement(By.Id("name")).GetAttribute("value")
+
+            Assert.AreEqual(nameList.Item(count), result)
+        Next count
+
+    End Sub
+
+    Public Function TextboxTestList() As List(Of String)
+        Dim nameList As New List(Of String)
+        nameList.Add("John Smith")
+        nameList.Add("Thomas Williams")
+        nameList.Add("Jane Jones")
+
+        Return nameList
+    End Function
+
 #End Region
 
 #Region "Radio Button Tests"
@@ -176,6 +201,10 @@ Imports OpenQA.Selenium.PhantomJS
     <TestCleanup()>
     Public Sub Cleanup()
         myDriver.Close()
+    End Sub
+
+    Public Sub ClearNameTextbox()
+        myDriver.FindElement(By.Id("name")).Clear()
     End Sub
 
     'Dim myDriver As New ChromeDriver("C:\Users\snaithm\Downloads\chromedriver_win32")
