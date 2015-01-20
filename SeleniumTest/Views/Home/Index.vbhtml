@@ -9,11 +9,12 @@ End Code
 <p>@ViewBag.Greeting</p>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(True)
+    @Html.ValidationSummary(False)
     @<fieldset>
 
     @Html.LabelFor(Function(model) model.Name, "Enter your name: ")
-    @Html.TextBoxFor(Function(model) model.Name)<br /><br />
+    @Html.TextBoxFor(Function(model) model.Name)
+    <br /><br />
 
     @Html.LabelFor(Function(model) model.Gender, "What is your gender: ")  
     @Html.RadioButtonFor(Function(model) model.Gender, "Male", New With {.id = "Male", .checked = "checked"}) Male
@@ -25,4 +26,3 @@ End Code
     <input type="submit" id="Next" value="Next">
     </fieldset>
 End Using
-    

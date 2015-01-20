@@ -8,24 +8,24 @@ Namespace SeleniumTest.Home
         ' GET: /Home/Index
         Function Index() As ActionResult
             Dim home As New Home
-
             ViewBag.Greeting = home.Greeting
-
             Return View()
+
         End Function
 
         ' POST: /Home/Index
         <HttpPost>
         Function Index(user As UserModel) As ActionResult
-            'MsgBox("Name: " + user.Name + " Gender: " + user.Gender.ToString + " Terms: " + user.TermsAndConditions.ToString)
+            Dim home As New Home
 
-            'If ModelState.IsValid Then
-            'Return View("Index")
-            'Else
-            'Return View("Index")
-            'End If
+            If ModelState.IsValid Then
+                ViewBag.Greeting = "Valid submission Name: " + user.Name + " Gender: " + user.Gender.ToString + " Terms: " + user.TermsAndConditions.ToString
+                Return View("Index")
+            Else
+                ViewBag.Greeting = "Please correct errors"
+                Return View("Index")
+            End If
 
-            Return View("Index")
         End Function
     End Class
 
