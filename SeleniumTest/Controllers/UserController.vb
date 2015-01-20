@@ -19,7 +19,7 @@ Namespace SeleniumTest.Home
 
             If ModelState.IsValid Then
                 ViewBag.Information = "Valid submission name: " + user.Name + " gender: " + user.Gender.ToString + " terms: " + user.TermsAndConditions.ToString
-
+                ModelState.Clear()
                 Return View("Index")
             Else
                 ViewBag.Information = "Please correct errors"

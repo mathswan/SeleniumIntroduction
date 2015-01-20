@@ -8,11 +8,12 @@ End Code
 <p>@ViewBag.Information</p>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(False)
+    @Html.ValidationSummary()
     @<fieldset>
 
     @Html.LabelFor(Function(model) model.Name, "Enter your name: ")
     @Html.TextBoxFor(Function(model) model.Name)
+    @Html.ValidationMessage("Name")
     <br /><br />
 
     @Html.LabelFor(Function(model) model.Gender, "What is your gender: ")  
@@ -20,7 +21,8 @@ End Code
     @Html.RadioButtonFor(Function(model) model.Gender, "Female", New With {.id = "Female"}) Female<br /><br />
 
     @Html.LabelFor(Function(model) model.TermsAndConditions, "I agree to the terms and conditions: ")
-    @Html.CheckBoxFor(Function(model) model.TermsAndConditions)<br /><br />
+    @Html.CheckBoxFor(Function(model) model.TermsAndConditions)
+    @Html.ValidationMessage("TermsAndConditions")<br /><br />
 
     <input type="submit" id="Next" value="Next">
     </fieldset>
