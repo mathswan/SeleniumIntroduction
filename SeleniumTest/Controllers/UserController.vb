@@ -16,7 +16,6 @@ Namespace SeleniumTest.Home
         ' POST: /Home/Index
         <HttpPost>
         Function Index(user As UserFormModel) As ActionResult
-            Dim home As New UserViewModel
 
             If ModelState.IsValid Then
                 ViewBag.Information = "Valid submission name: " + user.Name + " gender: " + user.Gender.ToString + " terms: " + user.TermsAndConditions.ToString
