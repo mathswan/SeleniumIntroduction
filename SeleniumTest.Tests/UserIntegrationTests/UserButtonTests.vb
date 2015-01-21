@@ -38,15 +38,16 @@ Imports OpenQA.Selenium.PhantomJS
 
     <TestInitialize()>
     Public Sub InitialiseDriver()
-        myDriver.Navigate.GoToUrl("http://localhost:1231")
+        setupDriver.Initialise(myDriver)
     End Sub
 
     <TestCleanup()>
     Public Sub Cleanup()
-        myDriver.Close()
+        setupDriver.Finalise(myDriver)
     End Sub
 
     'Dim myDriver As New ChromeDriver("C:\Users\snaithm\Downloads\chromedriver_win32")
     Dim myDriver As New PhantomJSDriver("C:\Users\snaithm\Downloads\phantomjs-1.9.8-windows\phantomjs-1.9.8-windows")
+    Dim setupDriver As New UserIntegrationTestSetup
 
 End Class
