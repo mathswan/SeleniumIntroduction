@@ -1,6 +1,6 @@
 ﻿Imports System.Web.Mvc
 
-Namespace SeleniumTest.Home
+Namespace SeleniumTest.User
 
     Public Class UserController
         Inherits Controller
