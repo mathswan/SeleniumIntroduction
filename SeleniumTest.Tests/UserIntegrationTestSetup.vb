@@ -16,4 +16,8 @@ Public Class UserIntegrationTestSetup
         Return myDriver
     End Function
 
+    Shared Property PhantomJSAddress As String = "C:\Users\snaithm\Downloads\phantomjs-1.9.8-windows\phantomjs-1.9.8-windows"
+
+    Shared Property ChromeDriverAddress As String = "C:\Users\snaithm\Downloads\chromedriver_win32"
+
 End Class

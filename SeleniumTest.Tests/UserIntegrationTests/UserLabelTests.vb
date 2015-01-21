@@ -35,8 +35,8 @@ Imports OpenQA.Selenium.PhantomJS
         setupDriver.Finalise(myDriver)
     End Sub
 
-    'Dim myDriver As New ChromeDriver("C:\Users\snaithm\Downloads\chromedriver_win32")
-    Dim myDriver As New PhantomJSDriver("C:\Users\snaithm\Downloads\phantomjs-1.9.8-windows\phantomjs-1.9.8-windows")
+    'Dim myDriver As New ChromeDriver(UserIntegrationTestSetup.ChromeDriverAddress)
+    Dim myDriver As New PhantomJSDriver(UserIntegrationTestSetup.PhantomJSAddress)
     Dim setupDriver As New UserIntegrationTestSetup
 
 End Class
