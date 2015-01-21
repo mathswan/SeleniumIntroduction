@@ -87,7 +87,7 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserIntegrationSpec.vb" />
+    <Compile Include="UserIntegrationTests\UserPageTests.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -103,6 +103,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserIntegrationTests\UserButtonTests.vb" />
+    <Compile Include="UserIntegrationTests\UserCheckboxTests.vb" />
+    <Compile Include="UserIntegrationTests\UserRadioButtonTests.vb" />
+    <Compile Include="UserIntegrationTests\UserLabelTests.vb" />
+    <Compile Include="UserIntegrationTests\UserTextBoxTests.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
